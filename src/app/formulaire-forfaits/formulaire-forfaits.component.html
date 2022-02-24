@@ -1,0 +1,89 @@
+<!-- Formulaire de contact avec (Reactive forms) -->
+<form class="example-form">
+  <!-- Champs de type Input -->
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom</mat-label>
+    <input matInput id="prénom" type="text" name="prénom" required />
+  </mat-form-field>
+  <br />
+  <!-- Champs de type Input -->
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput id="Nom" type="text" name="Nom" required />
+  </mat-form-field>
+  <!-- Champs de type Input -->
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter votre email</mat-label>
+      <input matInput placeholder="pat@example.com" type="email" required />
+    </mat-form-field>
+  </div>
+  <br />
+  <!-- Champs de type Input -->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Téléphone</mat-label>
+    <span matPrefix>+1 &nbsp;</span>
+    <input type="tel" matInput placeholder="555-555-1234" required />
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+  <br />
+  <!-- Champs de type Radio -->
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="courriel">Courriel </mat-radio-button>
+    <mat-radio-button value="téléphone">Téléphone </mat-radio-button>
+  </mat-radio-group>
+  <br />
+  <br />
+
+  <!-- Champs de type Autocomplete -->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Motif</mat-label>
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Motif"
+      matInput
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete> </mat-form-field
+  ><br />
+
+  <!-- Champs de type Textarea -->
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  <br /><br />
+
+  <!-- Champs de type Datepicker -->
+
+  <!-- Champs de type Select -->
+  <mat-form-field appearance="fill">
+    <mat-label>Comment avez-vous attendu parler de nous: </mat-label>
+    <mat-select disableRipple>
+      <mat-option value="internet">Internet</mat-option>
+      <mat-option value="télévision">Télévision</mat-option>
+      <mat-option value="radio">Radio</mat-option>
+      <mat-option value="ami(e)">Ami(e)</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br /><br />
+  <!-- Champs de type Slide toogle -->
+  <!-- Nombre Etoiles -->
+  <mat-label>Nombre(s) Étoile(s)</mat-label>
+  <mat-slider
+    min="1"
+    max="5"
+    step="1"
+    tickInterval="1"
+    aria-required="true"
+    thumbLabel
+    [displayWith]="formatLabel"
+  >
+  </mat-slider
+  ><br />
+</form>

@@ -1,0 +1,30 @@
+<p>sidenav works!</p>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Recherche Forfait</p>
+    <p *ngIf="showFiller">
+      <mat-label>Nombre(s) Étoile(s)</mat-label>
+      <mat-slider
+        min="1"
+        max="5"
+        step="1"
+        tickInterval="1"
+        aria-required="true"
+        thumbLabel
+        [displayWith]="formatLabel"
+      >
+      </mat-slider
+      ><br />
+    </p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Recherche Forfait
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Formulaire de forfait Cliquez sur moi
+    </button>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,32 @@
+<mat-card cols="3">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{ destination }}</h2>
+    </mat-card-title>
+
+    <div class="vedette">FORFAIT VEDETTE</div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <h5>De {{ villeDepart }}</h5>
+    <h3>{{ hotel }}</h3>
+    <div>
+      <span class="prixSansRabais"
+        ><h4>{{ prix }}$</h4>
+      </span>
+      <span class="prixRabais"
+        ><h4>{{ rabais }}$</h4></span
+      >
+      <span class="prixAvecRabais"
+        ><h4>{{ prixRabais }}$</h4></span
+      >
+
+      <div>
+        <app-etoiles [nombreEtoiles]="nombreEtoiles"></app-etoiles>
+      </div>
+    </div>
+    <p>
+      {{ dateDepart }} <br /><span>{{ duree }} Jours</span>
+    </p>
+  </mat-card-content>
+</mat-card>

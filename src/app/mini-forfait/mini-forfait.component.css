@@ -1,0 +1,60 @@
+mat-card {
+  background-color: rgb(94, 255, 0);
+  border-style: solid;
+  border-radius: 5px;
+  float: left;
+  margin-bottom: 70px;
+  margin-left: 10px;
+}
+p {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+h5 {
+  color: red;
+  font-weight: bold;
+}
+
+p span {
+  color: red;
+  font-weight: bold;
+}
+h3 {
+  font-size: 20px;
+  color: blue;
+}
+
+span.prixRabais h4 {
+  color: green;
+  font-weight: bold;
+}
+
+span.prixSansRabais h4 {
+  text-decoration: line-through;
+  color: red;
+  font-weight: bold;
+}
+
+span.prixAvecRabais h4 {
+  color: black;
+  font-weight: bold;
+}
+
+.material-icons {
+  color: coral;
+  margin-top: 15px;
+  margin-left: -3px;
+}
+
+div.vedette {
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+  background-color: coral;
+  margin-bottom: 30px;
+  font-size: -15px;
+}
+app-etoiles {
+  color: coral;
+}

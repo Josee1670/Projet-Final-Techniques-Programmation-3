@@ -1,0 +1,50 @@
+<div *ngFor="let forfait of forfaits">
+  <mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>
+        <div class="vedette">FORFAIT VEDETTE</div>
+        <span>{{ forfait.destination }}</span>
+
+        <h3>{{ forfait.hotel.nom }}</h3>
+        <p>
+          {{ forfait.hotel.adresse }}
+        </p>
+        <p>Nombre De Chambre: {{ forfait.hotel.nombreChambres }}</p>
+        <p>
+          {{ forfait.hotel.caracteristiques }}
+        </p>
+      </mat-card-title>
+
+      <img mat-card-xl-image src="https://www.stevensegallery.com/640/360" />
+    </mat-card-title-group>
+    <hr />
+    <mat-card-content>
+      <div *ngIf="forfait.rabais > 1; then rabais; else sansRabais"></div>
+      <ng-template #rabais>
+        <p class="titre">Prix</p>
+        <p class="rabaisForfait" style="text-decoration: line-through">
+          {{ forfait.prix }} $
+        </p>
+        <h3 class="rabaisForfait">{{ forfait.prix - forfait.rabais }} $</h3>
+        <p class="titre">
+          Rabais de : <span style="color: red">{{ forfait.rabais }} $</span>
+        </p>
+      </ng-template>
+      <ng-template #sansRabais>
+        <p class="titre">Prix</p>
+        <h3>{{ forfait.prix }}$</h3>
+      </ng-template>
+
+      <div>
+        <app-etoiles
+          [nombreEtoiles]="forfait.hotel.nombreEtoiles"
+        ></app-etoiles>
+      </div>
+
+      <p class="date">
+        {{ forfait.dateDepart }} <br />{{ forfait.dateRetour }}<br />
+        <span>{{ forfait.duree }} Jours</span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

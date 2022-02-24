@@ -1,0 +1,259 @@
+<table mat-table #tableForfaits [dataSource]="forfaits">
+  <!-- SOUS FORMULAIRE EDITION-SUPPRESION -->
+  <ng-container matColumnDef="destination">
+    <th mat-header-cell *matHeaderCellDef>Destination</th>
+    <td mat-cell *matCellDef="let forfait">
+      <form
+        #forfaitFormEdition="ngForm"
+        id="forfaitFormEdition"
+        (ngSubmit)="forfaitFormEdition.form.valid && onEdit(forfaitFormEdition)"
+      >
+        <mat-form-field
+          *ngIf="
+            selecteForfait && selecteForfait === forfait;
+            else editdestination
+          "
+          class="input-full-width"
+        >
+          <input
+            name="selecteForfaitdestination"
+            [(ngModel)]="selecteForfait.destination"
+            matInput
+            required
+            minlength="2"
+            maxlength="50"
+            name="destinationEdition"
+            #destinationEdition="ngModel"
+          />
+          <mat-error
+            *ngIf="
+              destinationEdition.invalid &&
+              (destinationEdition.dirty || destinationEdition.touched) &&
+              destinationEdition.hasError('required')
+            "
+            >Le nom est obligatoire.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              destinationEdition.invalid &&
+              (destinationEdition.dirty || destinationEdition.touched) &&
+              destinationEdition.hasError('minlength')
+            "
+            >Le nom doit contenir au moins 2 caractères.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              destinationEdition.invalid &&
+              (destinationEdition.dirty || destinationEdition.touched) &&
+              destinationEdition.hasError('maxlength')
+            "
+            >Le nom doit contenir au maximum 50 caractères.</mat-error
+          >
+        </mat-form-field>
+      </form>
+      <ng-template #editdestination
+        ><span (click)="onSelect(forfait)">{{
+          forfait.destination
+        }}</span></ng-template
+      >
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateRetour">
+    <th mat-header-cell *matHeaderCellDef>Date Retour</th>
+    <td mat-cell *matCellDef="let forfait">
+      <form
+        #forfaitFormEdition="ngForm"
+        id="forfaitFormEdition"
+        (ngSubmit)="forfaitFormEdition.form.valid && onEdit(forfaitFormEdition)"
+      >
+        <mat-form-field
+          *ngIf="
+            selecteForfait && selecteForfait === forfait;
+            else editdateRetour
+          "
+          class="input-full-width"
+        >
+          <input
+            name="selecteForfaitdateRetour"
+            [(ngModel)]="selecteForfait.dateRetour"
+            matInput
+            required
+            minlength="15"
+            maxlength="250"
+            name="dateRetourEdition"
+            #dateRetourEdition="ngModel"
+          />
+          <mat-error
+            *ngIf="
+              dateRetourEdition.invalid &&
+              (dateRetourEdition.dirty || dateRetourEdition.touched) &&
+              dateRetourEdition.hasError('required')
+            "
+            >Le description est obligatoire.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              dateRetourEdition.invalid &&
+              (dateRetourEdition.dirty || dateRetourEdition.touched) &&
+              dateRetourEdition.hasError('minlength')
+            "
+            >Le description doit contenir au moins 15 caractères.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              dateRetourEdition.invalid &&
+              (dateRetourEdition.dirty || dateRetourEdition.touched) &&
+              dateRetourEdition.hasError('maxlength')
+            "
+            >Le description doit contenir au maximum 250 caractères.</mat-error
+          >
+        </mat-form-field>
+      </form>
+      <ng-template #editdateRetour
+        ><span (click)="onSelect(forfait)">{{
+          forfait.dateRetour
+        }}</span></ng-template
+      >
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef>Nom</th>
+    <td mat-cell *matCellDef="let forfait">
+      <form
+        #forfaitFormEdition="ngForm"
+        id="forfaitFormEdition"
+        (ngSubmit)="forfaitFormEdition.form.valid && onEdit(forfaitFormEdition)"
+      >
+        <mat-form-field
+          *ngIf="selecteForfait && selecteForfait === forfait; else editnom"
+          class="input-full-width"
+        >
+          <input
+            name="selecteForfaitnom"
+            [(ngModel)]="selecteForfait.hotel.nom"
+            matInput
+            required
+            minlength="15"
+            maxlength="250"
+            name="nomEdition"
+            #nomEdition="ngModel"
+          />
+          <mat-error
+            *ngIf="
+              nomEdition.invalid &&
+              (nomEdition.dirty || nomEdition.touched) &&
+              nomEdition.hasError('required')
+            "
+            >Le description est obligatoire.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              nomEdition.invalid &&
+              (nomEdition.dirty || nomEdition.touched) &&
+              nomEdition.hasError('minlength')
+            "
+            >Le description doit contenir au moins 15 caractères.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              nomEdition.invalid &&
+              (nomEdition.dirty || nomEdition.touched) &&
+              nomEdition.hasError('maxlength')
+            "
+            >Le description doit contenir au maximum 250 caractères.</mat-error
+          >
+        </mat-form-field>
+      </form>
+      <ng-template #editnom
+        ><span (click)="onSelect(forfait)">{{
+          forfait.hotel.nom
+        }}</span></ng-template
+      >
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prix">
+    <th mat-header-cell *matHeaderCellDef>Prix</th>
+    <td mat-cell *matCellDef="let forfait">
+      <form
+        #forfaitFormEdition="ngForm"
+        id="forfaitFormEdition"
+        (ngSubmit)="forfaitFormEdition.form.valid && onEdit(forfaitFormEdition)"
+      >
+        <mat-form-field
+          *ngIf="selecteForfait && selecteForfait === forfait; else editPrix"
+          class="input-full-width"
+        >
+          <input
+            name="selectedProduitPrix"
+            [(ngModel)]="selecteForfait.prix"
+            matInput
+            required
+            minlength="2"
+            maxlength="5"
+            name="prixEdition"
+            #prixEdition="ngModel"
+          />
+          <mat-error
+            *ngIf="
+              prixEdition.invalid &&
+              (prixEdition.dirty || prixEdition.touched) &&
+              prixEdition.hasError('required')
+            "
+            >Le prix est obligatoire.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              prixEdition.invalid &&
+              (prixEdition.dirty || prixEdition.touched) &&
+              prixEdition.hasError('minlength')
+            "
+            >Le prix doit contenir au moins 2 caractères.</mat-error
+          >
+          <mat-error
+            *ngIf="
+              prixEdition.invalid &&
+              (prixEdition.dirty || prixEdition.touched) &&
+              prixEdition.hasError('maxlength')
+            "
+            >Le prix doit contenir au maximum 5 caractères.</mat-error
+          >
+        </mat-form-field>
+      </form>
+      <ng-template #editPrix
+        ><span (click)="onSelect(forfait)">{{
+          forfait.prix
+        }}</span></ng-template
+      >
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let forfait" class="boutonsAction">
+      <button
+        *ngIf="selecteForfait && selecteForfait === forfait; else editButton"
+        color="primary"
+        form="forfaitFormEdition"
+        mat-button
+      >
+        <i class="material-icons">done</i>
+      </button>
+
+      <ng-template #editButton>
+        <form (ngSubmit)="onSelect(forfait)">
+          <button mat-button><i class="material-icons">edit</i></button>
+        </form>
+      </ng-template>
+
+      <form (ngSubmit)="onDelete(forfait)">
+        <button mat-button><i class="material-icons">delete</i></button>
+      </form>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>

@@ -1,0 +1,9 @@
+<!--  
+
+<div *ngFor="let forfait of forfaits | martinique">
+  <app-forfait {{ forfait.destination }}></app-forfait>
+</div>
+-->
+<div *ngFor="let forfait of forfaits | martinique">
+  <app-forfait [forfait]="forfait"></app-forfait>
+</div>
